@@ -10,7 +10,7 @@ namespace El_Catalan_Hospital.models.Entities
 {
     public class Admin
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.None)]   //ID is National ID
         public string Admin_ID { get; set; }
         public string Admin_Name { get; set; }
         public string Email { get; set; }
