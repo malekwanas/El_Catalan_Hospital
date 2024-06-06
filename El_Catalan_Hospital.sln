@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "El_Catalan_Hospital", "El_Catalan_Hospital\El_Catalan_Hospital.csproj", "{D773477F-EFAB-4301-B927-8941835179D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "El_Catalan_Hospital.models", "El_Catalan_Hospital.models\El_Catalan_Hospital.models.csproj", "{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D773477F-EFAB-4301-B927-8941835179D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D773477F-EFAB-4301-B927-8941835179D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D773477F-EFAB-4301-B927-8941835179D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D773477F-EFAB-4301-B927-8941835179D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79802C9F-EE30-4F17-881B-FCC3C535280E}
+	EndGlobalSection
+EndGlobal
