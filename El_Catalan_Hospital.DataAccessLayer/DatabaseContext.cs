@@ -18,13 +18,7 @@ namespace El_Catalan_Hospital.DataAccessLayer
         public DbSet<Receptionist> Receptionist { get; set; }
         public DbSet<Specialization> Specialization { get; set; }
         public DbSet<WorkingSchedule> WorkingSchedule { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder); 
-        }
-
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
-        {
-        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) { base.OnModelCreating(modelBuilder); }
+        public DatabaseContext( DbContextOptions<DatabaseContext> options ) : base(options){ }
     }
 }

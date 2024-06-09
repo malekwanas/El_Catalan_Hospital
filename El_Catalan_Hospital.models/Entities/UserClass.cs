@@ -10,15 +10,17 @@ using Microsoft.EntityFrameworkCore;
 namespace El_Catalan_Hospital.models.Entities
 {
     public enum Gender { Male, Female }
+
+    [Index(nameof(Email), IsUnique = true)]
+    [Index(nameof(User_National_ID), IsUnique = true)]
     public class UserClass
     {
-
         [Required]
-        public string User_National_ID { get; set; }     //Add unique constraint
+        public string User_National_ID { get; set; }     
 
         [Required]
         [RegularExpression(@"[a-z A-Z 0-9 _-]+@[a-z A-Z]+.[a-z  A-Z]{2,4}", ErrorMessage = "Invalid email format")]
-        public string Email { get; set; }               //Add unique constraint
+        public string Email { get; set; }             
 
         [Required]
         public string Password { get; set; }
