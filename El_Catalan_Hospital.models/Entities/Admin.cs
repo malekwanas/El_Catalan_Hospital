@@ -11,7 +11,7 @@ namespace El_Catalan_Hospital.models.Entities
     public class Admin : UserClass
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]   //ID is National ID
-        public string Admin_ID { get; set; }
+        public int Admin_ID { get; set; }
         public List<Specialization> Specializations { get; set; }   //M-M table
     }
 }

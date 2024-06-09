@@ -24,8 +24,8 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
             modelBuilder.Entity("AdminSpecialization", b =>
                 {
-                    b.Property<string>("AdminsAdmin_ID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("AdminsAdmin_ID")
+                        .HasColumnType("int");
 
                     b.Property<int>("SpecializationsSpecialization_ID")
                         .HasColumnType("int");
@@ -39,9 +39,11 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Admin", b =>
                 {
-                    b.Property<string>("Admin_ID")
+                    b.Property<int>("Admin_ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Admin_ID"));
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
@@ -54,7 +56,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -71,33 +73,34 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("User_National_ID")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Admin_ID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("User_National_ID")
+                        .IsUnique();
 
                     b.ToTable("Admin");
                 });
 
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Appointment", b =>
                 {
-                    b.Property<short>("Appointment_ID")
+                    b.Property<int>("Appointment_ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("smallint");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<short>("Appointment_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Appointment_ID"));
 
                     b.Property<DateTime>("Appointment_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DoctorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PatientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Patient_ID")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -107,20 +110,21 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("Patient_ID");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("Appointment");
                 });
 
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Doctor", b =>
                 {
-                    b.Property<string>("Doctor_ID")
+                    b.Property<int>("Doctor_ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
 
-                    b.Property<string>("Admin_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Doctor_ID"));
+
+                    b.Property<int>("Admin_ID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
@@ -133,7 +137,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -153,13 +157,19 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("User_National_ID")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Doctor_ID");
 
                     b.HasIndex("Admin_ID");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("SpecializationId");
+
+                    b.HasIndex("User_National_ID")
+                        .IsUnique();
 
                     b.ToTable("Doctor");
                 });
@@ -183,7 +193,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -195,10 +205,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Receptionist_ID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Receptionist_ID1")
+                    b.Property<int?>("ReceptionistID")
                         .HasColumnType("int");
 
                     b.Property<string>("Street")
@@ -206,11 +213,17 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("User_National_ID")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Patient_ID");
 
-                    b.HasIndex("Receptionist_ID1");
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("ReceptionistID");
+
+                    b.HasIndex("User_National_ID")
+                        .IsUnique();
 
                     b.ToTable("Patient");
                 });
@@ -223,9 +236,8 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Receptionist_ID"));
 
-                    b.Property<string>("Admin_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Admin_ID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
@@ -238,7 +250,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
@@ -255,11 +267,17 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.Property<string>("User_National_ID")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Receptionist_ID");
 
                     b.HasIndex("Admin_ID");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("User_National_ID")
+                        .IsUnique();
 
                     b.ToTable("Receptionist");
                 });
@@ -293,9 +311,8 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Working_Schedule_ID"));
 
-                    b.Property<string>("Doctor_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Doctor_ID")
+                        .HasColumnType("int");
 
                     b.Property<int>("Working_Schedule_Day")
                         .HasColumnType("int");
@@ -338,7 +355,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     b.HasOne("El_Catalan_Hospital.models.Entities.Patient", "Patient")
                         .WithMany()
-                        .HasForeignKey("Patient_ID")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -370,9 +387,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 {
                     b.HasOne("El_Catalan_Hospital.models.Entities.Receptionist", "Receptionist")
                         .WithMany()
-                        .HasForeignKey("Receptionist_ID1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReceptionistID");
 
                     b.Navigation("Receptionist");
                 });

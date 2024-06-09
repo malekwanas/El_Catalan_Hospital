@@ -12,12 +12,12 @@ namespace El_Catalan_Hospital.models.Entities
     public class Appointment
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public short Appointment_ID { get; set; }
+        public int Appointment_ID { get; set; }
         public Status Status { get; set; }
-        public DateTime Appointment_Date { get; set; } //Day,Month,Year
-        public string DoctorId { get; set; }    //FK from Doctor's table
+        public DateTime Appointment_Date { get; set; } //Day,Month,Year,Time
+        public int DoctorId { get; set; }    //FK from Doctor's table
         public Doctor Doctor { get; set; }
-        public string PatientId { get; set; }   //FK from Patient's table
+        public int PatientId { get; set; }   //FK from Patient's table
         public Patient Patient { get; set; }
     }
 }

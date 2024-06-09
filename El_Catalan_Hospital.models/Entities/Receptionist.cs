@@ -14,7 +14,7 @@ namespace El_Catalan_Hospital.models.Entities
         public int Receptionist_ID { get; set; }
 
         [ForeignKey("Admin")]
-        public string Admin_ID { get; set; }
+        public int Admin_ID { get; set; }
         public Admin Admin { get; set; }
     }
 }

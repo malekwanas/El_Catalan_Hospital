@@ -11,10 +11,10 @@ namespace El_Catalan_Hospital.models.Entities
     public class Doctor : UserClass
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Doctor_ID { get; set; }
+        public int Doctor_ID { get; set; }
 
         [ForeignKey("Admin")]
-        public string Admin_ID { get; set; }
+        public int Admin_ID { get; set; }
         public Admin Admin { get; set; }
         public int SpecializationId { get; set; }    //FK from Specialization
         public Specialization Specialization { get; set; }

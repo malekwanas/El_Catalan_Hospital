@@ -17,8 +17,7 @@ namespace El_Catalan_Hospital.models.Entities
         public DayOfWeek Working_Schedule_Day { get; set; }  //Day ONLY
 
         [ForeignKey("Doctor")]
-        public string Doctor_ID { get; set; }
+        public int Doctor_ID { get; set; }
         public Doctor Doctor { get; set; }
-
     }
 }

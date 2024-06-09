@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}|El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj|g:\\iti\\iti-9 months\\graduation project\\el_catalan_hospital\\el_catalan_hospital.models\\entities\\userclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E607B204-BF61-47A6-9BAF-7786AAA1AFD5}|El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj|solutionrelative:el_catalan_hospital.models\\entities\\userclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{348B5E48-90E7-4241-A03C-AA26596B4BEE}|El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj|g:\\iti\\iti-9 months\\graduation project\\el_catalan_hospital\\el_catalan_hospital.dataaccesslayer\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{348B5E48-90E7-4241-A03C-AA26596B4BEE}|El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj|solutionrelative:el_catalan_hospital.dataaccesslayer\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,34 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserClass.cs",
-              "DocumentMoniker": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.models\\Entities\\UserClass.cs",
-              "RelativeDocumentMoniker": "El_Catalan_Hospital.models\\Entities\\UserClass.cs",
-              "ToolTip": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.models\\Entities\\UserClass.cs",
-              "RelativeToolTip": "El_Catalan_Hospital.models\\Entities\\UserClass.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T13:13:33.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DatabaseContext.cs",
-              "DocumentMoniker": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.DataAccessLayer\\DatabaseContext.cs",
-              "RelativeDocumentMoniker": "El_Catalan_Hospital.DataAccessLayer\\DatabaseContext.cs",
-              "ToolTip": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.DataAccessLayer\\DatabaseContext.cs",
-              "RelativeToolTip": "El_Catalan_Hospital.DataAccessLayer\\DatabaseContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T12:13:01.936Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"

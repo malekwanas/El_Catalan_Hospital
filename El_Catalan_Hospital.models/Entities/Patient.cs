@@ -13,7 +13,7 @@ namespace El_Catalan_Hospital.models.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Patient_ID { get; set; }
-        public int? Receptionist_ID { get; set; }  //FK from Receptionist class
+        public int? ReceptionistID { get; set; }  //FK from Receptionist class
         public Receptionist Receptionist { get; set; }
 
     }

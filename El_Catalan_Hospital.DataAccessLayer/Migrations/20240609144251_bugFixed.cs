@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class bugFixed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,9 +15,10 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 name: "Admin",
                 columns: table => new
                 {
-                    Admin_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    User_National_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Admin_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    User_National_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -51,9 +52,9 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 {
                     Receptionist_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Admin_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    User_National_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Admin_ID = table.Column<int>(type: "int", nullable: false),
+                    User_National_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -77,7 +78,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 name: "AdminSpecialization",
                 columns: table => new
                 {
-                    AdminsAdmin_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AdminsAdmin_ID = table.Column<int>(type: "int", nullable: false),
                     SpecializationsSpecialization_ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -101,11 +102,12 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 name: "Doctor",
                 columns: table => new
                 {
-                    Doctor_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Admin_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Doctor_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Admin_ID = table.Column<int>(type: "int", nullable: false),
                     SpecializationId = table.Column<int>(type: "int", nullable: false),
-                    User_National_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    User_National_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -137,10 +139,9 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 {
                     Patient_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Receptionist_ID = table.Column<int>(type: "int", nullable: true),
-                    Receptionist_ID1 = table.Column<int>(type: "int", nullable: false),
-                    User_National_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceptionistID = table.Column<int>(type: "int", nullable: true),
+                    User_National_ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -153,11 +154,10 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 {
                     table.PrimaryKey("PK_Patient", x => x.Patient_ID);
                     table.ForeignKey(
-                        name: "FK_Patient_Receptionist_Receptionist_ID1",
-                        column: x => x.Receptionist_ID1,
+                        name: "FK_Patient_Receptionist_ReceptionistID",
+                        column: x => x.ReceptionistID,
                         principalTable: "Receptionist",
-                        principalColumn: "Receptionist_ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Receptionist_ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -169,7 +169,7 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     Working_Schedule_Start_Time = table.Column<TimeOnly>(type: "time", nullable: false),
                     Working_Schedule_End_Time = table.Column<TimeOnly>(type: "time", nullable: false),
                     Working_Schedule_Day = table.Column<int>(type: "int", nullable: false),
-                    Doctor_ID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Doctor_ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,13 +186,12 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 name: "Appointment",
                 columns: table => new
                 {
-                    Appointment_ID = table.Column<short>(type: "smallint", nullable: false)
+                    Appointment_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<int>(type: "int", nullable: false),
                     Appointment_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DoctorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PatientId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Patient_ID = table.Column<int>(type: "int", nullable: false)
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    PatientId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,12 +203,24 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                         principalColumn: "Doctor_ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Appointment_Patient_Patient_ID",
-                        column: x => x.Patient_ID,
+                        name: "FK_Appointment_Patient_PatientId",
+                        column: x => x.PatientId,
                         principalTable: "Patient",
                         principalColumn: "Patient_ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Admin_Email",
+                table: "Admin",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Admin_User_National_ID",
+                table: "Admin",
+                column: "User_National_ID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AdminSpecialization_SpecializationsSpecialization_ID",
@@ -222,9 +233,9 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointment_Patient_ID",
+                name: "IX_Appointment_PatientId",
                 table: "Appointment",
-                column: "Patient_ID");
+                column: "PatientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Doctor_Admin_ID",
@@ -232,19 +243,55 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                 column: "Admin_ID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Doctor_Email",
+                table: "Doctor",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Doctor_SpecializationId",
                 table: "Doctor",
                 column: "SpecializationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patient_Receptionist_ID1",
+                name: "IX_Doctor_User_National_ID",
+                table: "Doctor",
+                column: "User_National_ID",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_Email",
                 table: "Patient",
-                column: "Receptionist_ID1");
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_ReceptionistID",
+                table: "Patient",
+                column: "ReceptionistID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_User_National_ID",
+                table: "Patient",
+                column: "User_National_ID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Receptionist_Admin_ID",
                 table: "Receptionist",
                 column: "Admin_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Receptionist_Email",
+                table: "Receptionist",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Receptionist_User_National_ID",
+                table: "Receptionist",
+                column: "User_National_ID",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_WorkingSchedule_Doctor_ID",
