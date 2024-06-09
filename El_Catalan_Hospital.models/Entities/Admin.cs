@@ -8,16 +8,10 @@ using System.Threading.Tasks;
 
 namespace El_Catalan_Hospital.models.Entities
 {
-    public class Admin
+    public class Admin : UserClass
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.None)]   //ID is National ID
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]   //ID is National ID
         public string Admin_ID { get; set; }
-        public string Admin_Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public Gender Gender { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string Phone { get; set; }
-        public List<Specialization> Specializations { get; set; }
+        public List<Specialization> Specializations { get; set; }   //M-M table
     }
 }

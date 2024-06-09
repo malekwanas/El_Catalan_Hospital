@@ -14,7 +14,7 @@ namespace El_Catalan_Hospital.models.Entities
         public int Specialization_ID { get; set; }
         public string Specialization_Name { get; set; }
         public string Specialization_Description { get; set; }
-        public List<Admin> Admins { get; set; }
+        public List<Admin> Admins { get; set; } //M-M with Admins
 
     }
 }

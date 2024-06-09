@@ -1,11 +1,23 @@
+using El_Catalan_Hospital.DataAccessLayer;
+using Microsoft.EntityFrameworkCore;
+using El_Catalan_Hospital.BLL;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("El_Catalan_Connection")));
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
-//builder.Services.AddDbContext<El_CatalanDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyDatabase")));
 
 var app = builder.Build();
 
@@ -16,12 +28,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
 app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
+

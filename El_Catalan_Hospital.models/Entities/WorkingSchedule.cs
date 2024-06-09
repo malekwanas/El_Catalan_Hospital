@@ -12,8 +12,9 @@ namespace El_Catalan_Hospital.models.Entities
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Working_Schedule_ID { get; set; }
-        public TimeOnly Working_Schedule_Time { get; set; }
-        public DateOnly Working_Schedule_Date { get; set; } //Day,Month,Year
+        public TimeOnly Working_Schedule_Start_Time { get; set; }
+        public TimeOnly Working_Schedule_End_Time { get; set; }
+        public DayOfWeek Working_Schedule_Day { get; set; }  //Day ONLY
 
         [ForeignKey("Doctor")]
         public string Doctor_ID { get; set; }

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\El_Catalan_Hospital.API.props" />
+</Project>

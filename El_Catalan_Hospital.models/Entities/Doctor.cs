@@ -8,21 +8,15 @@ using System.Threading.Tasks;
 
 namespace El_Catalan_Hospital.models.Entities
 {
-    public class Doctor
+    public class Doctor : UserClass
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Doctor_ID { get; set; }
-        public string Doctor_Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public Gender Gender { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string Phone { get; set; }
 
         [ForeignKey("Admin")]
         public string Admin_ID { get; set; }
         public Admin Admin { get; set; }
-        public string SpecializationId { get; set; }    //FK from Specialization
+        public int SpecializationId { get; set; }    //FK from Specialization
         public Specialization Specialization { get; set; }
     }
 }
