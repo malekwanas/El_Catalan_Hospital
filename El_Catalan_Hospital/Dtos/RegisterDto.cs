@@ -5,6 +5,9 @@ namespace El_Catalan_Hospital.API.Dtos
     public class RegisterDto
     {
         [Required]
+        public string User_National_ID { get; set; }
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -16,6 +19,6 @@ namespace El_Catalan_Hospital.API.Dtos
         [Required]
         public string DisplayName { get; set; }
         [Required]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

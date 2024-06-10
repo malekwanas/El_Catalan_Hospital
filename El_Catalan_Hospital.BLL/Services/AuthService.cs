@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,56 +31,46 @@ namespace El_Catalan_Hospital.BLL.Services
 
             var userRoles = await userManager.GetRolesAsync(user);
 
+            bool isAdmin = false, isDoctor = false, isReceptionist = false, isPatient = false;
+
             foreach (var userRole in userRoles)
             {
                 authClaims.Add(new Claim(ClaimTypes.Role, userRole));
 
-                // Adding specific claims for each role
-                if (userRole.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                switch (userRole.ToLower())
                 {
-                    authClaims.Add(new Claim("IsAdmin", "true"));
-                }
-                else if (userRole.Equals("doctor", StringComparison.OrdinalIgnoreCase))
-                {
-                    authClaims.Add(new Claim("IsDoctor", "true"));
-                }
-                else if (userRole.Equals("receptionist", StringComparison.OrdinalIgnoreCase))
-                {
-                    authClaims.Add(new Claim("IsReceptionist", "true"));
-                }
-                else if (userRole.Equals("patient", StringComparison.OrdinalIgnoreCase))
-                {
-                    authClaims.Add(new Claim("IsPatient", "true"));
+                    case "admin":
+                        isAdmin = true;
+                        break;
+                    case "doctor":
+                        isDoctor = true;
+                        break;
+                    case "receptionist":
+                        isReceptionist = true;
+                        break;
+                    case "patient":
+                        isPatient = true;
+                        break;
                 }
             }
 
-            // Adding false claims for roles not assigned
-            if (!userRoles.Contains("admin"))
-            {
-                authClaims.Add(new Claim("IsAdmin", "false"));
-            }
-            if (!userRoles.Contains("doctor"))
-            {
-                authClaims.Add(new Claim("IsDoctor", "false"));
-            }
-            if (!userRoles.Contains("receptionist"))
-            {
-                authClaims.Add(new Claim("IsReceptionist", "false"));
-            }
-            if (!userRoles.Contains("patient"))
-            {
-                authClaims.Add(new Claim("IsPatient", "false"));
-            }
+            authClaims.Add(new Claim("IsAdmin", isAdmin.ToString().ToLower()));
+            authClaims.Add(new Claim("IsDoctor", isDoctor.ToString().ToLower()));
+            authClaims.Add(new Claim("IsReceptionist", isReceptionist.ToString().ToLower()));
+            authClaims.Add(new Claim("IsPatient", isPatient.ToString().ToLower()));
 
             var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:SecretKey"]));
 
             var token = new JwtSecurityToken(
-                audience: _configuration["JWT:ValidAudience"],
+
+                audience: _configuration["JWT:ValidAudiance"],
                 issuer: _configuration["JWT:ValidIssuer"],
                 expires: DateTime.UtcNow.AddDays(1),
                 claims: authClaims,
+
                 signingCredentials: new SigningCredentials(authKey, SecurityAlgorithms.HmacSha256Signature)
-            );
+                );
+
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

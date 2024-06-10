@@ -12,8 +12,8 @@ namespace El_Catalan_Hospital.API.Dtos
         public string? Street { get; set; }
         public string? Building_Number { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? BirthDate { get; set; }
-        public string? Phone { get; set; }
+    
+        public DateOnly? BirthDate { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\El_Catalan_Hospital.models\El_Catalan_Hospital.models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

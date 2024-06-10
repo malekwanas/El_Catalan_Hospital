@@ -15,7 +15,7 @@ namespace El_Catalan_Hospital.models.Entities
         public int Admin_ID { get; set; }
         public List<Specialization> Specializations { get; set; }   //M-M table
         [ForeignKey("AppUser")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public AppUser AppUser { get; set; }
     }
 }

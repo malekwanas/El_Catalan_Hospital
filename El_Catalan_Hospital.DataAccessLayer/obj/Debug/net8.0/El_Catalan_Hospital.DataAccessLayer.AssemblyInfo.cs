@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("El_Catalan_Hospital.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5f6507c3880991e579b9df7b7379b74bf419a1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+774fcd57835cef83f29ef69178036c42ef9a06b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("El_Catalan_Hospital.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("El_Catalan_Hospital.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

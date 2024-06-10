@@ -4,9 +4,9 @@ namespace El_Catalan_Hospital.API.Repository.Contract
 {
     public interface IGenericRepositoryUser<T> where T : AppUser
     {
-        Task<T?> UpdateAsync(int id, T entityToUpdate);
+        Task<T?> UpdateAsync(string id, T entityToUpdate);
 
-        Task<T?> GetAsync(int id);
+        Task<T?> GetAsync(string id);
 
         Task SaveChanges();
     }

@@ -18,7 +18,7 @@ namespace El_Catalan_Hospital.models.Entities
         public Receptionist Receptionist { get; set; }
 
         [ForeignKey("AppUser")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public AppUser AppUser { get; set; }
 
     }

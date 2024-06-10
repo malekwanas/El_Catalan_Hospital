@@ -24,7 +24,7 @@ namespace El_Catalan_Hospital.API.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserDto>> GetUser(int id)
+        public async Task<ActionResult<UserDto>> GetUser(string id)
         {
 
             var user = await userRepository.GetAsync(id);
@@ -39,9 +39,9 @@ namespace El_Catalan_Hospital.API.Controllers
 
 
         [HttpPatch("{id}")]
-        public async Task<ActionResult<UserToReturnDto>> UpdateUser(int id, UserToReturnDto updatedUserDto)
+        public async Task<ActionResult<UserToReturnDto>> UpdateUser(string id, UserToReturnDto updatedUserDto)
         {
-            if (id!=0)
+            if (id is null)
                 return BadRequest(new { Message = "Invalid user ID", StatusCode = "400" });
 
             var existingUser = await userRepository.GetAsync(id);
@@ -49,7 +49,7 @@ namespace El_Catalan_Hospital.API.Controllers
                 return NotFound(new { Message = "User not found", StatusCode = "404" });
 
             existingUser.DisplayName = updatedUserDto.DisplayName;
-            existingUser.PhoneNumber= updatedUserDto.Phone;
+            existingUser.PhoneNumber= updatedUserDto.PhoneNumber;
             existingUser.Gender = updatedUserDto.Gender;
             existingUser.City = updatedUserDto.City;
             existingUser.Street = updatedUserDto.Street;

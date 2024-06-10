@@ -14,7 +14,7 @@ namespace El_Catalan_Hospital.API.Repository
             _dbcontext = dbcontext;
         }
 
-        public async Task<T?> GetAsync(int id)
+        public async Task<T?> GetAsync(string id)
         {
             T entity = await _dbcontext.Set<T>().FindAsync(id);
             return entity;
@@ -25,7 +25,7 @@ namespace El_Catalan_Hospital.API.Repository
             await _dbcontext.SaveChangesAsync();
         }
 
-        public async Task<T?> UpdateAsync(int id, T entityToUpdate)
+        public async Task<T?> UpdateAsync(string id, T entityToUpdate)
         {
             T entity = await _dbcontext.Set<T>().FindAsync(id);
             if (entity != null)

@@ -294,3 +294,4 @@ G:\catalan\El_Catalan_Hospital\obj\Debug\net8.0\refint\El_Catalan_Hospital.API.d
 G:\catalan\El_Catalan_Hospital\obj\Debug\net8.0\El_Catalan_Hospital.API.pdb
 G:\catalan\El_Catalan_Hospital\obj\Debug\net8.0\El_Catalan_Hospital.API.genruntimeconfig.cache
 G:\catalan\El_Catalan_Hospital\obj\Debug\net8.0\ref\El_Catalan_Hospital.API.dll
+G:\catalan\El_Catalan_Hospital\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

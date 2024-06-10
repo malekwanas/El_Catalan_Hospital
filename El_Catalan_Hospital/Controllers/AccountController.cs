@@ -1,5 +1,7 @@
 ﻿using El_Catalan_Hospital.API.Dtos;
+using El_Catalan_Hospital.API.Repository.Contract;
 using El_Catalan_Hospital.BLL.Services.Contract;
+using El_Catalan_Hospital.models.Entities;
 using El_Catalan_Hospital.models.Entities.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -14,13 +16,16 @@ namespace El_Catalan_Hospital.API.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IAuthService _authService;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IGenericRepository<Patient> _patientRepository;
+        
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IAuthService authService, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IAuthService authService, RoleManager<IdentityRole> roleManager, IGenericRepository<Patient> patientRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _authService = authService;
             _roleManager = roleManager;
+            _patientRepository = patientRepository;
         }
 
 
@@ -58,9 +63,18 @@ namespace El_Catalan_Hospital.API.Controllers
                 DisplayName = Model.DisplayName,
                 Email = Model.Email,
                 UserName = Model.DisplayName,
-                PhoneNumber = Model.Phone
+                PhoneNumber = Model.PhoneNumber,
+                User_National_ID = Model.User_National_ID,
        
             };
+            var patient = new Patient()
+            {
+                AppUser = user,
+                UserId = user.Id,
+
+
+            };
+            
 
             if (!await _roleManager.RoleExistsAsync("patient"))
             {
@@ -68,8 +82,10 @@ namespace El_Catalan_Hospital.API.Controllers
                 role.Name = "patient";
                 await _roleManager.CreateAsync(role);
             }
+            await _patientRepository.AddAsync(patient);
 
             var result = await _userManager.CreateAsync(user, Model.Password);
+            
 
 
             if (!result.Succeeded)
