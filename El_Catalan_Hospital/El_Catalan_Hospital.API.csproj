@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\El_Catalan_Hospital.BLL\El_Catalan_Hospital.BLL.csproj" />
     <ProjectReference Include="..\El_Catalan_Hospital.DataAccessLayer\El_Catalan_Hospital.DataAccessLayer.csproj" />
     <ProjectReference Include="..\El_Catalan_Hospital.models\El_Catalan_Hospital.models.csproj" />

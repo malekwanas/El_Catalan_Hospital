@@ -45,43 +45,12 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Admin_ID"));
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Building_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("Gender")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User_National_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Admin_ID");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("User_National_ID")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Admin");
                 });
@@ -126,6 +95,34 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     b.Property<int>("Admin_ID")
                         .HasColumnType("int");
 
+                    b.Property<int>("SpecializationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Doctor_ID");
+
+                    b.HasIndex("Admin_ID");
+
+                    b.HasIndex("SpecializationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Doctor");
+                });
+
+            modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Identity.AppUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -135,43 +132,75 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SpecializationId")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("User_National_ID")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Doctor_ID");
-
-                    b.HasIndex("Admin_ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.HasIndex("SpecializationId");
-
                     b.HasIndex("User_National_ID")
                         .IsUnique();
 
-                    b.ToTable("Doctor");
+                    b.ToTable("AppUser");
                 });
 
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Patient", b =>
@@ -182,48 +211,17 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Patient_ID"));
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Building_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("ReceptionistID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User_National_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Patient_ID");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
                     b.HasIndex("ReceptionistID");
 
-                    b.HasIndex("User_National_ID")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Patient");
                 });
@@ -239,45 +237,14 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     b.Property<int>("Admin_ID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Building_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("Gender")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("User_National_ID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Receptionist_ID");
 
                     b.HasIndex("Admin_ID");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("User_National_ID")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Receptionist");
                 });
@@ -345,6 +312,17 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Admin", b =>
+                {
+                    b.HasOne("El_Catalan_Hospital.models.Entities.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.Appointment", b =>
                 {
                     b.HasOne("El_Catalan_Hospital.models.Entities.Doctor", "Doctor")
@@ -378,7 +356,15 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("El_Catalan_Hospital.models.Entities.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Admin");
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Specialization");
                 });
@@ -388,6 +374,14 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                     b.HasOne("El_Catalan_Hospital.models.Entities.Receptionist", "Receptionist")
                         .WithMany()
                         .HasForeignKey("ReceptionistID");
+
+                    b.HasOne("El_Catalan_Hospital.models.Entities.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Receptionist");
                 });
@@ -400,7 +394,15 @@ namespace El_Catalan_Hospital.DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("El_Catalan_Hospital.models.Entities.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Admin");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("El_Catalan_Hospital.models.Entities.WorkingSchedule", b =>

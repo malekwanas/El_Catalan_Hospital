@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "El_Catalan_Hospital.models"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "El_Catalan_Hospital.DataAccessLayer", "El_Catalan_Hospital.DataAccessLayer\El_Catalan_Hospital.DataAccessLayer.csproj", "{348B5E48-90E7-4241-A03C-AA26596B4BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "El_Catalan_Hospital.BLL", "El_Catalan_Hospital.BLL\El_Catalan_Hospital.BLL.csproj", "{DA0CD30E-CCD0-403F-ADE7-7AF50E1B5D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "El_Catalan_Hospital.BLL", "El_Catalan_Hospital.BLL\El_Catalan_Hospital.BLL.csproj", "{DA0CD30E-CCD0-403F-ADE7-7AF50E1B5D8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
