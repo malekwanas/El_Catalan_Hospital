@@ -2,12 +2,13 @@
 using El_Catalan_Hospital.API.Dtos;
 using El_Catalan_Hospital.API.Repository.Contract;
 using El_Catalan_Hospital.models.Entities.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace El_Catalan_Hospital.API.Controllers
 {
-
+   
     public class UserController : BaseController
     {
         private readonly IGenericRepositoryUser<AppUser> userRepository;
@@ -23,6 +24,7 @@ namespace El_Catalan_Hospital.API.Controllers
         }
 
 
+        [Authorize(Roles = "admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<UserDto>> GetUser(string id)
         {
@@ -37,6 +39,7 @@ namespace El_Catalan_Hospital.API.Controllers
 
 
 
+    
         [HttpPatch("{id}")]
         public async Task<ActionResult<UserToReturnDto>> UpdateUser(string id, UserToReturnDto updatedUserDto)
         {

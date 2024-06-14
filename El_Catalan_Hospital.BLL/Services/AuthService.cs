@@ -15,14 +15,15 @@ namespace El_Catalan_Hospital.BLL.Services
     public class AuthService : IAuthService
     {
         private readonly IConfiguration _configuration;
+
         public AuthService(IConfiguration configuration)
         {
-            _configuration = configuration;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
 
         public async Task<string> CreateTokenAsync(AppUser user, UserManager<AppUser> userManager)
         {
-            var authClaims = new List<Claim>()
+            var authClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.DisplayName),
                 new Claim(ClaimTypes.Email, user.Email),
@@ -30,7 +31,22 @@ namespace El_Catalan_Hospital.BLL.Services
             };
 
             var userRoles = await userManager.GetRolesAsync(user);
+            AddRoleClaims(authClaims, userRoles);
 
+            var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:SecretKey"]));
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JWT:ValidIssuer"],
+                audience: _configuration["JWT:ValidAudience"],
+                expires: DateTime.UtcNow.AddDays(1),
+                claims: authClaims,
+                signingCredentials: new SigningCredentials(authKey, SecurityAlgorithms.HmacSha256Signature)
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private void AddRoleClaims(List<Claim> authClaims, IList<string> userRoles)
+        {
             bool isAdmin = false, isDoctor = false, isReceptionist = false, isPatient = false;
 
             foreach (var userRole in userRoles)
@@ -58,21 +74,6 @@ namespace El_Catalan_Hospital.BLL.Services
             authClaims.Add(new Claim("IsDoctor", isDoctor.ToString().ToLower()));
             authClaims.Add(new Claim("IsReceptionist", isReceptionist.ToString().ToLower()));
             authClaims.Add(new Claim("IsPatient", isPatient.ToString().ToLower()));
-
-            var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:SecretKey"]));
-
-            var token = new JwtSecurityToken(
-
-                audience: _configuration["JWT:ValidAudiance"],
-                issuer: _configuration["JWT:ValidIssuer"],
-                expires: DateTime.UtcNow.AddDays(1),
-                claims: authClaims,
-
-                signingCredentials: new SigningCredentials(authKey, SecurityAlgorithms.HmacSha256Signature)
-                );
-
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace El_Catalan_Hospital.API.Dtos
 {
-    public class RegisterDto
+    public class RegisterReceptionistDto
     {
         [Required]
         public string User_National_ID { get; set; }
@@ -21,9 +21,6 @@ namespace El_Catalan_Hospital.API.Dtos
         [Required]
         public string PhoneNumber { get; set; }
 
-        public int? ReceptionistID { get; set; }
-
-    
-
+        public int Adminid { get; set; }
     }
 }

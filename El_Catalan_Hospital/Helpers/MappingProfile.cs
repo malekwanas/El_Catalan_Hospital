@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using El_Catalan_Hospital.API.Dtos;
+using El_Catalan_Hospital.models.Entities;
 using El_Catalan_Hospital.models.Entities.Identity;
 
 namespace El_Catalan_Hospital.API.Helpers
@@ -11,6 +12,8 @@ namespace El_Catalan_Hospital.API.Helpers
 
             CreateMap<AppUser, UserDto>();
             CreateMap<AppUser, UserToReturnDto>();
+            CreateMap<Patient, RegisterDto>();
+            CreateMap<Doctor, RegisterDoctorDto>();
         }
     }
 }

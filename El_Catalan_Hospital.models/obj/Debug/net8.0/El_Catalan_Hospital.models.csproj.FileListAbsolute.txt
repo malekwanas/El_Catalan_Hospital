@@ -27,3 +27,18 @@ G:\ITI\ITI-9 months\Graduation Project\El_Catalan_Hospital\El_Catalan_Hospital.m
 G:\ITI\ITI-9 months\Graduation Project\El_Catalan_Hospital\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.pdb
 G:\ITI\ITI-9 months\Graduation Project\El_Catalan_Hospital\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.genruntimeconfig.cache
 G:\ITI\ITI-9 months\Graduation Project\El_Catalan_Hospital\El_Catalan_Hospital.models\obj\Debug\net8.0\ref\El_Catalan_Hospital.models.dll
+G:\cata\El_Catalan_Hospital.models\bin\Debug\net8.0\El_Catalan_Hospital.models.deps.json
+G:\cata\El_Catalan_Hospital.models\bin\Debug\net8.0\El_Catalan_Hospital.models.runtimeconfig.json
+G:\cata\El_Catalan_Hospital.models\bin\Debug\net8.0\El_Catalan_Hospital.models.dll
+G:\cata\El_Catalan_Hospital.models\bin\Debug\net8.0\El_Catalan_Hospital.models.pdb
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.csproj.AssemblyReference.cache
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.GeneratedMSBuildEditorConfig.editorconfig
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.AssemblyInfoInputs.cache
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.AssemblyInfo.cs
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.csproj.CoreCompileInputs.cache
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.sourcelink.json
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.dll
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\refint\El_Catalan_Hospital.models.dll
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.pdb
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\El_Catalan_Hospital.models.genruntimeconfig.cache
+G:\cata\El_Catalan_Hospital.models\obj\Debug\net8.0\ref\El_Catalan_Hospital.models.dll
