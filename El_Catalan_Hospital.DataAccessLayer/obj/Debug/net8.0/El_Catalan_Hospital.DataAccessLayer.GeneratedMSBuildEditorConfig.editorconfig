@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = El_Catalan_Hospital.DataAccessLayer
-build_property.ProjectDir = C:\Users\dell\Desktop\El_Catalan_Hospital-Main\El_Catalan_Hospital.DataAccessLayer\
+build_property.ProjectDir = G:\ITI\ITI-9 months\Graduation Project\El_Catalan_Hospital\El_Catalan_Hospital.DataAccessLayer\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
