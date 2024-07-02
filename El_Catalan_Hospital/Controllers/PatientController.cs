@@ -43,12 +43,12 @@ namespace El_Catalan_Hospital.API.Controllers
         [HttpPut("UpdatedPatient/{id}")]
         public async Task<IActionResult> PutPatient(int id, PatientDTO patientDTO)
         {
-            if (id != patientDTO.Patient_ID) { return BadRequest("You cant update someone else but yourself."); }
+
 
             var updatedPatient = await patientService.UpdateAsync(patientDTO, id);
             if (updatedPatient == null) { return NotFound("Cant find updated patient."); }
 
-            return Ok($"Patient with ID: {id} updated successfully.");
+            return Ok();
         }
         //-----------------------------------------------------------------------------------------------
         //[HttpPost("AddAppointment")]

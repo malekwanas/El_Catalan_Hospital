@@ -19,6 +19,7 @@ namespace El_Catalan_Hospital.BLL.MappingProfiles
                .ForMember(destination => destination.Street, opt => opt.MapFrom(src => src.AppUser.Street))
                .ForMember(destination => destination.ReceptionistID, opt => opt.MapFrom(src => src.ReceptionistID))
                .ForMember(destination => destination.Patient_ID, opt => opt.MapFrom(src => src.Id))
+               .ForMember(destination => destination.Phone, opt => opt.MapFrom(src => src.AppUser.PhoneNumber))
                .ReverseMap();
         }
 

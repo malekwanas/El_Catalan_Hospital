@@ -4603,24 +4603,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dell\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\SALMA\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital\\El_Catalan_Hospital.API.csproj",
+      "projectUniqueName": "G:\\ssss\\El_Catalan_Hospital\\El_Catalan_Hospital.API.csproj",
       "projectName": "El_Catalan_Hospital.API",
-      "projectPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital\\El_Catalan_Hospital.API.csproj",
-      "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital\\obj\\",
+      "projectPath": "G:\\ssss\\El_Catalan_Hospital\\El_Catalan_Hospital.API.csproj",
+      "packagesPath": "C:\\Users\\SALMA\\.nuget\\packages\\",
+      "outputPath": "G:\\ssss\\El_Catalan_Hospital\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\SALMA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4628,21 +4623,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.BLL\\El_Catalan_Hospital.BLL.csproj": {
-              "projectPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.BLL\\El_Catalan_Hospital.BLL.csproj"
+            "G:\\ssss\\El_Catalan_Hospital.BLL\\El_Catalan_Hospital.BLL.csproj": {
+              "projectPath": "G:\\ssss\\El_Catalan_Hospital.BLL\\El_Catalan_Hospital.BLL.csproj"
             },
-            "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj": {
-              "projectPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj"
+            "G:\\ssss\\El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj": {
+              "projectPath": "G:\\ssss\\El_Catalan_Hospital.DataAccessLayer\\El_Catalan_Hospital.DataAccessLayer.csproj"
             },
-            "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj": {
-              "projectPath": "G:\\ITI\\ITI-9 months\\Graduation Project\\El_Catalan_Hospital\\El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj"
+            "G:\\ssss\\El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj": {
+              "projectPath": "G:\\ssss\\El_Catalan_Hospital.models\\El_Catalan_Hospital.models.csproj"
             }
           }
         }
@@ -4708,7 +4702,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
