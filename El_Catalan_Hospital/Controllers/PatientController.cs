@@ -1,6 +1,7 @@
 ﻿using El_Catalan_Hospital.BLL.DTO;
 using El_Catalan_Hospital.BLL.Services;
 using El_Catalan_Hospital.BLL.Services.Contract;
+using El_Catalan_Hospital.models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,13 @@ namespace El_Catalan_Hospital.API.Controllers
     {
         private readonly IPatientService patientService;
         private readonly IAppointmentService appointmentService;
+        private readonly WhatsAppService whatsAppService;
 
-        public PatientController(IPatientService _patientService,IAppointmentService _appointmentService)
+        public PatientController(IPatientService _patientService,IAppointmentService _appointmentService, WhatsAppService _whatsAppService)
         {
             patientService = _patientService;
             appointmentService = _appointmentService;
+            whatsAppService = _whatsAppService;
         }
         //-----------------------------------------------------------------------------------------------
         private int GetPatientIdFromToken()
@@ -67,14 +70,37 @@ namespace El_Catalan_Hospital.API.Controllers
             var (isSuccess, appointment, error) = await patientService.MakeAnAppointmentAsync(appointmentDTO, PatientID);
             if (!isSuccess) { return BadRequest(error); }
 
+            // Send WhatsApp message
+            try
+            {
+                await whatsAppService.SendMessageAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle error (log it, etc.)
+                return StatusCode(500, $"Appointment created but failed to send message: {ex.Message}");
+            }
+
             return Ok(appointment);
         }
+
         //-----------------------------------------------------------------------------------------------
         [HttpGet("GetAllDoctorsByTheirSpecialization/{id}")]
         public IActionResult GetAllDoctorsBySpecialization(int id)
         {
             var doctors = patientService.GetAllDoctorsBySpec(id);
             if (doctors == null || !doctors.Any()) { return NotFound("No doctors in this specialization"); }
+            //try
+            //{
+            //    whatsAppService.SendMessageAsync();
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Handle error (log it, etc.)
+            //    return StatusCode(500, $"Appointment created but failed to send message: {ex.Message}");
+            //}
+
+            
             return Ok(doctors);
         }
         //-----------------------------------------------------------------------------------------------
